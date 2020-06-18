@@ -58,3 +58,10 @@ for i in range(25):
     plt.xlabel(class_names[train_labels[i]])
 plt.show()
 
+# 学習モデルを構築
+model = keras.Sequensial([
+    keras.layers.Flatten(input_shape = (28, 28)),   # 入力次元数(28 * 28 = 784)
+    keras.layers.Dense(128, activation = 'relu'),
+    keras.layers.Dense(10, activation = 'softmax')
+])
+
