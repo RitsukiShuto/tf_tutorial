@@ -3,3 +3,33 @@
 #
 # coding 'UTF-8'
 #
+from __future__ import absolute_import, division, print_function, unicode_literals
+
+# TensorFlowをインポート
+import tensorflow as tf
+from tensorflow import keras
+
+# ヘルパーライブラリのインポート
+import numpy as np
+import matplotlib.pyplot as plt
+
+print('TensorFlow Ver. ' + tf.__version__)
+
+# データセットをロード
+fashion_mnist = keras.datasets.fashion_mnist
+(train_images, train_labels), (test_images, test_labels) = fashion_mnist.load_data()
+
+# クラス名を保存
+class_names = ['T-shirts/top', 'Trouser', 'Pullover', 'Dress', 'coat',
+                'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
+
+# データの観察
+# 訓練データ
+print(train_images.shape)   # データのフォーマット
+print(len(train_labels))    # 訓練用ラベルの数
+print(train_labels)         # 訓練用ラベル
+
+# テストデータ
+print(test_images.shape)    # データフォーマット
+print(len(test_labels))     # ラベル数
+print(test_labels)          # ラベル
