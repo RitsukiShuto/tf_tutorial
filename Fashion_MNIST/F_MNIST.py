@@ -46,7 +46,7 @@ plt.show()
 train_images = train_images / 255.0
 test_images = test_images / 255.0
 
-plt.figre(figsize = (10, 10))
+plt.figure(figsize = (10, 10))
 
 # 画像をクラス名付きで表示
 for i in range(25):
