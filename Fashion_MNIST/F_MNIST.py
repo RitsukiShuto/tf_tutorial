@@ -59,7 +59,7 @@ for i in range(25):
 plt.show()
 
 # 学習モデルを構築
-model = keras.Sequensial([
+model = keras.Sequential([
     keras.layers.Flatten(input_shape = (28, 28)),   # 入力次元数(28 * 28 = 784)
     keras.layers.Dense(128, activation = 'relu'),
     keras.layers.Dense(10, activation = 'softmax')
