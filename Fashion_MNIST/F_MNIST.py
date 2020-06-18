@@ -33,3 +33,11 @@ print(train_labels)         # 訓練用ラベル
 print(test_images.shape)    # データフォーマット
 print(len(test_labels))     # ラベル数
 print(test_labels)          # ラベル
+
+# データの前処理
+# 画像を例示
+plt.figure()
+plt.imshow(test_images[0])
+plt.colorbar()
+plt.grid(False)
+plt.show()
