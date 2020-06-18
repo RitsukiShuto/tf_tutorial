@@ -43,8 +43,8 @@ plt.grid(False)
 plt.show()
 
 # ピクセルを正規化
-train_images /= 255.0
-test_images /= 255.0
+train_images = train_images / 255.0
+test_images = test_images / 255.0
 
 plt.figre(figsize = (10, 10))
 
