@@ -41,3 +41,20 @@ plt.imshow(test_images[0])
 plt.colorbar()
 plt.grid(False)
 plt.show()
+
+# ピクセルを正規化
+train_images /= 255.0
+test_images /= 255.0
+
+plt.figre(figsize = (10, 10))
+
+# 画像をクラス名付きで表示
+for i in range(25):
+    plt.subplot(5, 7, i + 1)
+    plt.xticks([])
+    plt.yticks([])
+    plt.grid(False)
+    plt.imshow(train_images[i], camp = plt.cm.binary)
+    plt.xlabel(class_names[train_labels[i]])
+plt.show()
+
