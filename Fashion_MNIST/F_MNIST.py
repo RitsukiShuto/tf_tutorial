@@ -141,3 +141,21 @@ for i in range(num_images):
     plot_value_array(i, predictions, test_labels)
 
 plt.show()
+
+# テスト用データセットから画像を一枚取り出す
+img = test_images[0]
+print(img.shape)
+
+# 画像を１枚だけバッチのメンバーにする
+img = (np.expand_dims(img, 0))
+print(img.shape)
+
+# 予測を行う
+predictions_single = model.predict(img)
+print(predictions_single)
+
+plot_value_array(0, predictions_single, test_labels)
+_ = plt.xticks(range(10), class_names, rotation = 45)
+
+# バッチの中から予測を取り出す
+print(np.argmax(predictions_single[0]))
