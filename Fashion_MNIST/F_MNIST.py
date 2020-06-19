@@ -137,7 +137,7 @@ plt.figure(figsize = (2 * 2 * num_cols, 2 * i * 1))
 for i in range(num_images):
     plt.subplot(num_rows, 2 * num_cols, 2 * i + 1)
     plot_image(i, predictions, test_labels, test_images)
-    plt.subplot(num_rows, 2 * num_cols, 2 * i * 2)
+    plt.subplot(num_rows, 2 * num_cols, 2 * i + 2)
     plot_value_array(i, predictions, test_labels)
 
 plt.show()
