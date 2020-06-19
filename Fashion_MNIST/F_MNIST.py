@@ -40,7 +40,7 @@ plt.figure()
 plt.imshow(test_images[0])
 plt.colorbar()
 plt.grid(False)
-plt.show()
+#plt.show()
 
 # ピクセルを正規化
 train_images = train_images / 255.0
@@ -56,7 +56,8 @@ for i in range(25):
     plt.grid(False)
     plt.imshow(train_images[i], cmap = plt.cm.binary)
     plt.xlabel(class_names[train_labels[i]])
-plt.show()
+
+#plt.show()
 
 # 学習モデルを構築
 model = keras.Sequential([
@@ -91,7 +92,7 @@ def plot_image(i, predictions_array, true_label, img):
     plt.xticks([])
     plt.yticks([])
 
-    plt.imsow(img, cmap = plt.cm.binary)
+    plt.imshow(img, cmap = plt.cm.binary)
 
     predicted_label = np.argmax(predictions_array)
     if predicted_label == true_label:
@@ -116,3 +117,27 @@ def plot_value_array(i, predictions_array, true_label):
     thisplot[predicted_label].set_color('red')
     thisplot[true_label].set_color('blue')
 
+# i番目の画像を確認
+i = 0
+plt.figure(figsize = (6, 3))
+plt.subplot(1, 2, 1)
+plot_image(i, predictions, test_labels, test_images)
+plt.subplot(1, 2, 2)
+plot_value_array(i, predictions, test_labels)
+plt.show()
+
+# x個のテスト画像、予想されたラベル、正解ラベルを表示
+# 正しい予測は青、間違った予測は赤で表示
+num_rows = 5
+num_cols = 3
+num_images = num_rows * num_cols
+
+plt.figure(figsize = (2 * 2 * num_cols, 2 * i * 1))
+
+for i in range(num_images):
+    plt.subplot(num_rows, 2 * num_cols, 2 * i + 1)
+    plot_image(i, predictions, test_labels, test_images)
+    plt.subplot(num_rows, 2 * num_cols, 2 * i * 2)
+    plot_value_array(i, predictions, test_labels)
+
+plt.show()
