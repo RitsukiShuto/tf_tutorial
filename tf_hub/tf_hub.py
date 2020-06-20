@@ -50,7 +50,7 @@ model.compile(optimizer = 'adam',
 
 # 訓練
 history = model.fit(train_data.shuffle(10000).batch(512),
-                    epoch = 20,
+                    epochs = 20,
                     validation_data = validation_data.batch(512),
                     verbose = 1)
 
