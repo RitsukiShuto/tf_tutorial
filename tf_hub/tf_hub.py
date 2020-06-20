@@ -31,3 +31,19 @@ train_examples_batch, train_labels_batch = next(iter(train_data.batch(10)))
 print(train_examples_batch)     # 訓練データのデータを表示
 print(train_labels_batch)       # 訓練データのデータラベルを表示
 
+# 学習モデルを構築
+embedding = "https://tfhub.dev/google/tf2-preview/gnews-swivel-20dim/1"
+hub_layer = hub.KerasLayer(embedding, input_shape = [],
+                            dtype = tf.string, trainable = True)
+hub_layer(train_examples_batch[:3])
+
+model = tf.keras.Sequential()
+model.add(hub_layer)
+model.add(tf.keras.layers.Dense(16, activation = 'relu'))
+model.ass(tf.keras.layers.Dense(1))
+
+model.summary()
+
+model.compile(optimizer = 'adam',
+                loss = tf.keras.losses.BinaryCrossentropy(from_logits = True),
+                metrics = ['accuracy'])
