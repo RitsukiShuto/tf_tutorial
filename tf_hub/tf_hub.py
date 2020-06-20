@@ -40,7 +40,7 @@ hub_layer(train_examples_batch[:3])
 model = tf.keras.Sequential()
 model.add(hub_layer)
 model.add(tf.keras.layers.Dense(16, activation = 'relu'))
-model.ass(tf.keras.layers.Dense(1))
+model.add(tf.keras.layers.Dense(1))
 
 model.summary()
 
