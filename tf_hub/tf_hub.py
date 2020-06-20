@@ -54,3 +54,8 @@ history = model.fit(train_data.shuffle(10000).batch(512),
                     validation_data = validation_data.batch(512),
                     verbose = 1)
 
+# 学習モデルを評価
+results = model.evalate(test_data.batch(512), verbose = 2)
+
+for name, value in zip(model.metrics_names, results):
+    print("%s: %.3f" % (name, value))
