@@ -26,3 +26,8 @@ train_data, validation_data, test_data = tfds.load(
     split = ('train[:60%]', 'train[60%:]', 'test'),
     as_supervised = True)
 
+# データを探索
+train_examples_batch, train_labels_batch = next(iter(train_data.batch(10)))
+print(train_examples_batch)     # 訓練データのデータを表示
+print(train_labels_batch)       # 訓練データのデータラベルを表示
+
